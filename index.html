@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Vũ Quỳnh Anh · Digital Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Be+Vietnam+Pro:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="fish" viewBox="0 0 100 50"><path d="M5 25C25 2 65 2 80 25 65 48 25 48 5 25Z" fill="currentColor"/><path d="M78 25 98 6V44Z" fill="currentColor" opacity=".8"/><path d="M40 8C47 20 47 30 40 42" stroke="#fff" stroke-opacity=".55" stroke-width="3.5" fill="none"/><circle cx="21" cy="20" r="4" fill="#fff"/><circle cx="20" cy="20" r="1.8" fill="#123"/></symbol>
+<symbol id="star" viewBox="0 0 100 100"><path d="M50 4 62 36 96 38 70 59 79 93 50 74 21 93 30 59 4 38 38 36Z" fill="#f4b9a0" stroke="#e79a80" stroke-width="3" stroke-linejoin="round"/><circle cx="50" cy="50" r="4" fill="#fbe0d2"/><circle cx="50" cy="28" r="2.5" fill="#fbe0d2"/><circle cx="72" cy="44" r="2.5" fill="#fbe0d2"/><circle cx="28" cy="44" r="2.5" fill="#fbe0d2"/></symbol>
+<symbol id="bow" viewBox="0 0 200 130"><defs><linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e3eefc"/><stop offset=".5" stop-color="#a9c8f0"/><stop offset="1" stop-color="#6f97d4"/></linearGradient><linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfe0f8"/><stop offset="1" stop-color="#5f86c6"/></linearGradient></defs><path d="M94 70C78 90 62 108 48 126L68 120 78 130C86 112 94 94 102 76Z" fill="url(#bg2)" stroke="#6288c4" stroke-width="1.6" stroke-linejoin="round"/><path d="M106 70C122 90 138 108 152 126L132 120 122 130C114 112 106 94 98 76Z" fill="url(#bg2)" stroke="#6288c4" stroke-width="1.6" stroke-linejoin="round"/><path d="M96 62C76 20 18 6 10 40 4 68 42 90 96 68Z" fill="url(#bg1)" stroke="#6288c4" stroke-width="1.8"/><path d="M104 62C124 20 182 6 190 40 196 68 158 90 104 68Z" fill="url(#bg1)" stroke="#6288c4" stroke-width="1.8"/><path d="M90 60C66 36 34 30 22 42M110 60C134 36 166 30 178 42" stroke="#fff" stroke-opacity=".75" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M92 66C64 62 34 62 18 52M108 66C136 62 166 62 182 52" stroke="#5f86c6" stroke-opacity=".5" stroke-width="1.6" fill="none"/><rect x="84" y="50" width="32" height="30" rx="13" fill="url(#bg2)" stroke="#6288c4" stroke-width="1.8"/><path d="M90 58C98 54 106 54 112 58" stroke="#fff" stroke-opacity=".8" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="100" cy="66" r="5" fill="#fff" stroke="#cfc6b8"/></symbol><symbol id="wv" viewBox="0 0 1200 70"><path d="M0 35C100 5 200 5 300 35S500 65 600 35 800 5 900 35 1100 65 1200 35V70H0Z" fill="#eaf6fb"/></symbol>
+</defs></svg>
+<canvas id="fx"></canvas>
+<button class="snd" id="snd" aria-pressed="false">🔇 Bật âm thanh biển</button>
+
+<!-- TRANG 1 -->
+<div id="cover" class="view on show">
+  <div class="blob">
+    <svg class="bow" style="top:-62px;width:150px;margin-left:-75px"><use href="#bow"/></svg>
+    <small>DIGITAL PORTFOLIO</small>
+    <h1>Vũ Quỳnh Anh</h1>
+    <button class="cta" id="go">LẶN VÀO KHÁM PHÁ</button>
+  </div>
+</div>
+
+<!-- TRANG 2 -->
+<div id="main" class="view">
+  <nav class="nav"><button id="back">‹ Về biển sâu</button><a href="#about">Giới thiệu</a><a href="#exp">Hành trình</a><a href="#skills">Kỹ năng</a><a href="#goals">Định hướng</a><a href="#contact">Liên hệ</a></nav>
+  <div class="col">
+
+    <header class="pg hero2">
+      <div class="nm">VŨ QUỲNH ANH</div>
+      <div class="pol"><div class="clip"></div><svg class="bow"><use href="#bow"/></svg><div class="photo" role="img" aria-label="Ảnh Vũ Quỳnh Anh" style="background:url(assets/profile.jpg) center/cover"></div><span>Quỳnh Anh</span></div>
+      <p class="script" style="font-size:1.5rem">Hành trình ngôn ngữ &amp; thương mại của mình</p>
+      <div class="seaStrip"></div>
+      <button class="play" id="play" aria-label="Bật hoặc tắt âm thanh biển">♪</button>
+    </header>
+
+    <section class="pg rv" id="about">
+      <h2>Chào bạn, thân mến!</h2>
+      <p>Mình là Quỳnh Anh, cử nhân Tiếng Trung Thương mại tại Đại học Ngoại Thương, với nền tảng song ngữ Trung – Anh, tư duy phân tích thị trường và ứng dụng công nghệ trong kinh doanh.</p>
+      <p>Mình năng nổ trong các tổ chức sinh viên hàng đầu, tham gia nhiều cuộc thi chuyên môn và đang hướng tới Phát triển Thị trường, Marketing, Chuỗi cung ứng hoặc Xuất nhập khẩu.</p>
+      <div class="pline"></div>
+    </section>
+
+    <section class="blue rv"><div class="in">
+      <h2>Đại học Ngoại Thương</h2>
+      <p style="margin-bottom:0">Tiếng Trung Thương mại Tiêu chuẩn</p>
+      <div class="stats"><div><b>3.5</b><em>GPA / 4.0</em></div><div><b>HSK 5</b><em>Tiếng Trung</em></div><div><b>C1</b><em>Tiếng Anh</em></div></div>
+      <a class="sbtn w" href="#exp">Xem hành trình</a>
+    </div></section>
+
+    <section class="pg" id="exp">
+      <div class="rv"><h2>Hành trình</h2><p style="margin-bottom:34px">Thực tập, câu lạc bộ và các cuộc thi. Bấm nút để xem chi tiết.</p></div>
+      <details class="tm rv"><summary><small>THỰC TẬP · FOXCON</small><h3>Xuất nhập khẩu</h3><span class="sbtn">Chi tiết</span></summary><ul><li>Biên/phiên dịch hợp đồng, tài liệu sản phẩm và đàm phán với đối tác Trung Quốc, quốc tế bằng tiếng Trung &amp; Anh.</li><li>Phân tích thị trường, đối thủ để xác định xu hướng và hỗ trợ chiến lược tiếp cận khách hàng.</li><li>Xử lý đơn hàng, theo dõi giao hàng, giải đáp thắc mắc của đối tác.</li></ul></details>
+      <details class="tm rv"><summary><small>THỰC TẬP</small><h3>Marketing &amp; Content</h3><span class="sbtn">Chi tiết</span></summary><ul><li>Xây dựng nội dung Việt – Trung – Anh trên Facebook, TikTok, Xiaohongshu.</li><li>Phân tích hành vi người dùng và chiến dịch nổi bật của Trung Quốc/quốc tế để đề xuất ý tưởng truyền thông mới.</li></ul></details>
+      <details class="tm rv"><summary><small>CLB · BAN CHUYÊN MÔN</small><h3>MRC FTU</h3><span class="sbtn">Chi tiết</span></summary><ul><li>Nghiên cứu hành vi tiêu dùng của giới trẻ và xu hướng kinh doanh mới.</li><li>Lên kế hoạch, khảo sát, phân tích dữ liệu bằng SPSS/Excel.</li><li>Tổ chức chuỗi sự kiện, workshop thu hút 500+ sinh viên.</li></ul></details>
+      <details class="tm rv"><summary><small>CLB · BAN TRUYỀN THÔNG</small><h3>STEC FTU</h3><span class="sbtn">Chi tiết</span></summary><ul><li>Ứng dụng công cụ công nghệ và dữ liệu để tối ưu quy trình, quản lý dự án.</li><li>Đồng hành tổ chức cuộc thi, sự kiện về công nghệ, đổi mới sáng tạo, chuyển đổi số.</li></ul></details>
+      <details class="tm rv"><summary><small>CUỘC THI · GIẢI NHÌ</small><h3>Nhịp cầu Hán ngữ</h3><span class="sbtn">Chi tiết</span></summary><ul><li>Giao tiếp, hùng biện tiếng Trung lưu loát.</li><li>Hiểu biết sâu sắc về văn hóa và kinh tế Trung Quốc.</li></ul></details>
+      <details class="tm rv"><summary><small>CUỘC THI · GIẢI BA</small><h3>Thanh âm diệu kỳ</h3><span class="sbtn">Chi tiết</span></summary><ul><li>Rèn kỹ năng lồng tiếng, phát âm chuẩn xác.</li><li>Tư duy ngôn ngữ và sự tự tin khi trình diễn trước đám đông.</li></ul></details>
+    </section>
+
+    <section class="blue rv" id="skills"><div class="in">
+      <h2>Kỹ năng</h2>
+      <div class="orbs">
+        <div class="orb" style="--c:#e8dfd0">Biên/phiên dịch</div><div class="orb" style="--c:#cfe3f8">Nghiên cứu thị trường</div><div class="orb" style="--c:#d6ead9">Excel · SPSS</div>
+        <div class="orb" style="--c:#f4d9d9">Đàm phán đa văn hóa</div><div class="orb" style="--c:#e5dcf3">Làm việc nhóm</div><div class="orb" style="--c:#f6eccf">Sáng tạo</div>
+      </div>
+      <div class="bar"><b>Tiếng Trung · HSK 5</b><i><em data-w="82"></em></i></div>
+      <div class="bar"><b>Tiếng Anh · C1<span>IELTS ~7.0–7.5</span></b><i><em data-w="88"></em></i></div>
+      <p style="margin-top:16px"><span class="chip">Word · Excel · PowerPoint</span><span class="chip">WeChat · Baidu · Taobao/1688</span><span class="chip">Quản lý thời gian</span><span class="chip">Giải quyết vấn đề</span></p>
+    </div></section>
+
+    <section class="pg" id="goals">
+      <div class="rv"><h2>Định hướng tương lai</h2><p>Trở thành chuyên gia Phát triển Thị trường / Thương mại Quốc tế, am hiểu thị trường Trung Quốc và Đông Nam Á.</p></div>
+      <div class="tray rv"><svg class="bow"><use href="#bow"/></svg>
+        <div class="tag2"><p><b>(1) 1 – 2 năm tới</b>Làm chuyên viên/thực tập sinh chính thức tại tập đoàn đa quốc gia, doanh nghiệp xuất nhập khẩu hoặc FDI Trung Quốc/Đài Loan: logistics, thương mại điện tử, marketing quốc tế.</p>
+        <p><b>(2) Nâng cao năng lực</b>Thi đạt HSK 6 và HSKK Cao cấp; học Power BI, SQL, quản lý chuỗi cung ứng; tối ưu kỹ năng đàm phán với đối tác Trung Quốc.</p>
+        <p style="margin:0"><b>(3) 3 – 5 năm tới</b>Hoàn thành MBA hoặc Thương mại Quốc tế tại Trung Quốc/Đài Loan, hoặc chương trình liên kết quốc tế.</p></div></div>
+    </section>
+
+    <section class="pg" id="contact">
+      <div class="rv"><div class="ribbon">Liên hệ</div>
+      <p>Rất vui được trao đổi về cơ hội thực tập, hợp tác và dự án.</p>
+      <div class="soc"><a href="mailto:quynhanhftuer@gmail.com" aria-label="Gửi email">Mail</a><a href="https://www.facebook.com/yew.gojou/?locale=vi_VN" target="_blank" rel="noopener" aria-label="Facebook">fb</a></div>
+      <p style="margin-top:4px"><a href="mailto:quynhanhftuer@gmail.com" style="color:var(--deep)">quynhanhftuer@gmail.com</a></p></div>
+      <form class="frm rv" id="frm">
+        <h2 style="text-align:center;font-size:2.2rem">Gửi lời nhắn</h2>
+        <label class="t" for="n">Tên của bạn</label><input type="text" id="n" placeholder="Họ và tên">
+        <label class="t">Bạn muốn trao đổi về</label>
+        <label class="o"><input type="radio" name="p" checked> Cơ hội thực tập / việc làm</label>
+        <label class="o"><input type="radio" name="p"> Hợp tác dự án</label>
+        <label class="o"><input type="radio" name="p"> Chỉ muốn chào hỏi</label>
+        <label class="t" for="m">Lời nhắn</label><textarea id="m" rows="3"></textarea>
+        <p style="text-align:center;margin-top:18px"><button class="sbtn" type="submit">Gửi lời nhắn</button></p>
+        <div class="ok" id="ok">Cảm ơn bạn! Mình sẽ phản hồi sớm nhất.</div>
+      </form>
+    </section>
+
+    <section class="blue rv"><div class="in">
+      <h2>Đếm ngược đến năm mới</h2>
+      <p style="margin-bottom:0">Một chương mới đang tới gần.</p>
+      <div class="cd"><div><b id="d">0</b><span>ngày</span></div><div><b id="h">0</b><span>giờ</span></div><div><b id="mi">0</b><span>phút</span></div><div><b id="s">0</b><span>giây</span></div></div>
+    </div></section>
+
+    <div class="sand">Vũ Quỳnh Anh · FTU
+      <svg class="star" style="left:8%;bottom:24px;transform:rotate(-14deg)"><use href="#star"/></svg>
+      <svg class="star" style="right:10%;bottom:50px;width:42px;transform:rotate(20deg)"><use href="#star"/></svg>
+    </div>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

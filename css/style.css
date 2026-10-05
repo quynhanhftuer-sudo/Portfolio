@@ -1,0 +1,127 @@
+:root{--ink:#27406b;--deep:#3b6bb0;--sky:#8cc8ee;--mist:#e6f4fb;--sand:#f1e4c8;--glass:rgba(255,255,255,.64);--line:rgba(255,255,255,.95);--sh:rgba(40,100,160,.22);--bg1:#a9dcf3;--bg2:#eaf6fb;--bg3:#f1e4c8;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e4eefc;--deep:#9cc3f2;--glass:rgba(20,40,75,.6);--line:rgba(140,190,240,.35);--bg1:#14507a;--bg2:#10294a;--bg3:#4a4332;--mist:#1d3a62}}
+:root[data-theme="dark"]{--ink:#e4eefc;--deep:#9cc3f2;--glass:rgba(20,40,75,.6);--line:rgba(140,190,240,.35);--bg1:#14507a;--bg2:#10294a;--bg3:#4a4332;--mist:#1d3a62}
+html{scroll-behavior:smooth;scroll-padding-top:70px}*{box-sizing:border-box}
+body{margin:0;font:300 16px/1.7 'Be Vietnam Pro',system-ui,sans-serif;color:var(--ink);background:#0b4f86}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;margin:0;line-height:1.1;font-weight:600}
+#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:5}
+.view{display:none;opacity:0;transition:opacity .9s}.view.on{display:block}.view.show{opacity:1}
+button{font-family:inherit}
+.snd{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:20;border:1px solid var(--line);background:var(--glass);backdrop-filter:blur(8px);color:var(--ink);border-radius:99px;padding:9px 16px;font-size:.8rem;cursor:pointer;box-shadow:0 6px 16px var(--sh)}
+:focus-visible{outline:3px solid #fff;outline-offset:3px;box-shadow:0 0 0 5px var(--deep)}
+
+/* ===== TRANG 1: HANG ĐỘNG DƯỚI BIỂN ===== */
+#cover{position:relative;min-height:100vh;overflow:hidden;background:url(../assets/ocean-bg.jpg) center 30%/cover no-repeat,#0a4f90}
+#cover.on{display:grid;place-items:center}
+.sea{position:absolute;inset:0;background:radial-gradient(ellipse 50% 42% at 62% 20%,#e2fcff 0,#7fe0f6 16%,#2aa9e2 40%,transparent 75%),linear-gradient(#1b86c8 0,#0e5a9c 45%,#072f5e 100%)}
+.rays{position:absolute;inset:-25%;transform-origin:62% 30%;background:repeating-conic-gradient(from 168deg at 62% 18%,transparent 0 3deg,rgba(255,255,255,.22) 4deg,transparent 6.5deg,transparent 9deg);-webkit-mask:linear-gradient(#000 12%,transparent 80%);mask:linear-gradient(#000 12%,transparent 80%);animation:sw2 12s ease-in-out infinite alternate;mix-blend-mode:screen}
+.rays.r2{animation-duration:17s;animation-direction:alternate-reverse;opacity:.55}
+@keyframes sw2{from{transform:rotate(-3deg)}to{transform:rotate(3deg)}}
+.cave{position:absolute;inset:0;width:100%;height:100%;z-index:2}
+.floor{position:absolute;left:0;right:0;bottom:0;height:34%;z-index:3;background:radial-gradient(ellipse 50% 60% at 42% 100%,rgba(255,226,160,.75),transparent 70%),linear-gradient(transparent,rgba(110,215,255,.3)),repeating-linear-gradient(8deg,transparent 0 22px,rgba(200,248,255,.32) 25px,transparent 31px);background-size:100% 100%,100% 100%,300px 300px;animation:drift 10s linear infinite;mix-blend-mode:screen}
+@keyframes drift{to{background-position:0 0,0 0,300px 0}}
+.fish{position:absolute;left:0;width:44px;animation:swim linear infinite;z-index:3}
+.fish svg{width:100%;display:block;animation:bob 3s ease-in-out infinite}
+.fish.r{animation-direction:reverse}.fish.r svg{transform:scaleX(-1)}
+@keyframes swim{from{transform:translateX(110vw)}to{transform:translateX(-25vw)}}
+@keyframes bob{50%{translate:0 -8px}}
+.scene{position:absolute;left:0;right:0;bottom:0;width:100%;height:38vh;min-height:210px;z-index:4}
+.sway{transform-origin:50% 100%;transform-box:fill-box;animation:sway 5s ease-in-out infinite alternate}
+@keyframes sway{from{rotate:-4deg}to{rotate:5deg}}
+.blob{position:relative;z-index:4;width:min(620px,90vw);padding:58px 30px 48px;text-align:center;background:radial-gradient(circle at 30% 20%,rgba(255,255,255,.34),rgba(255,255,255,.08));backdrop-filter:blur(5px);border:2px solid rgba(255,255,255,.75);border-radius:58% 42% 52% 48%/48% 56% 44% 52%;box-shadow:0 0 70px rgba(160,240,255,.45),inset 0 0 40px rgba(255,255,255,.22)}
+.blob:before{content:"";position:absolute;inset:-12px;border:3px dotted rgba(255,255,255,.7);border-radius:inherit;pointer-events:none}
+@keyframes morph{to{border-radius:46% 54% 44% 56%/56% 44% 56% 44%}}
+.blob small{letter-spacing:.4em;font-size:.72rem;color:#fff}
+.blob h1{font-style:italic;font-weight:400;font-size:clamp(3.2rem,13vw,6rem);color:#fff;margin:10px 0 26px;text-shadow:0 0 28px rgba(140,235,255,.9),0 4px 18px rgba(8,50,110,.55)}
+.blob p{margin:0 0 26px;font:italic 1.3rem 'Cormorant Garamond',serif;color:#eaf8ff}
+.cta{border:1.5px solid #fff;background:linear-gradient(#fff,#d9ecfb);color:#1f5a9c;padding:14px 32px;border-radius:99px;cursor:pointer;font-weight:500;letter-spacing:.14em;font-size:.82rem;transition:.3s;box-shadow:0 8px 22px rgba(8,50,110,.4),inset 0 2px 0 #fff}
+.cta:hover{transform:translateY(-3px) scale(1.03)}
+/* ===== TRANG 2: THIỆP BỜ BIỂN ===== */
+:root{--paper:#fffaf1;--blue:#8fb4e6;--pearl:#f1ece4}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#1b2944}}
+:root[data-theme="dark"]{--paper:#1b2944}
+#main{background:linear-gradient(180deg,#7ec8ee,#cfe9f7 40%,#efe3c6 100%)}
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;display:flex;justify-content:center;gap:6px;flex-wrap:wrap;padding:10px;background:var(--glass);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav a,.nav button{font-size:.78rem;color:var(--deep);text-decoration:none;padding:6px 14px;border-radius:99px;border:1px solid var(--line);background:var(--glass);cursor:pointer}
+.nav a:hover,.nav button:hover{background:#fff;color:#2a5d9d}
+.col{max-width:780px;margin:0 auto;background:var(--paper);position:relative;box-shadow:0 0 70px rgba(30,90,150,.35)}
+.pg{padding:60px 26px;text-align:center;position:relative}
+.pg h2{font-size:clamp(2.1rem,7vw,3rem);font-weight:400;font-style:italic;color:var(--deep);margin-bottom:16px;letter-spacing:.02em}
+.pg p{max-width:520px;margin:0 auto 12px}
+.script{font:italic 400 clamp(2.2rem,8vw,3.2rem)/1 'Cormorant Garamond',serif;color:var(--deep)}
+.blue{background:var(--blue);color:#fff;padding:78px 26px;position:relative;text-align:center}
+.blue:before,.blue:after{content:"";position:absolute;left:0;right:0;height:24px}
+.blue:before{top:0;background:radial-gradient(circle at 12px 0,var(--paper) 11px,transparent 12px) 0 0/24px 24px repeat-x}
+.blue:after{bottom:0;background:radial-gradient(circle at 12px 24px,var(--paper) 11px,transparent 12px) 0 0/24px 24px repeat-x}
+.blue .in{border:2px dashed rgba(255,255,255,.7);border-radius:30px;padding:30px 18px;max-width:520px;margin:0 auto;background:rgba(255,255,255,.08)}
+.blue h2{color:#fff}
+/* nút mềm */
+.sbtn{display:inline-flex;align-items:center;gap:10px;padding:12px 28px 12px 14px;border-radius:99px;border:1.5px solid #fff;background:linear-gradient(#e4f0fc,#a9cbf0);color:#2b5a99;font-weight:500;font-size:.86rem;letter-spacing:.06em;cursor:pointer;text-decoration:none;box-shadow:0 8px 18px var(--sh),inset 0 2px 0 #fff;transition:.3s}
+.sbtn:before{content:"";width:20px;height:20px;border-radius:50%;background:radial-gradient(circle at 32% 28%,#fff,#e9e2d6 55%,#b9b0a0);box-shadow:0 2px 5px rgba(0,0,0,.25)}
+.sbtn:hover{transform:translateY(-3px);box-shadow:0 12px 24px var(--sh),inset 0 2px 0 #fff;background:linear-gradient(#f3f9ff,#b9d6f4)}
+.sbtn.w{background:linear-gradient(#fff,#e6f1fc)}
+/* hero */
+.hero2{padding-top:70px;background:linear-gradient(var(--paper) 70%,transparent)}
+.nm{font:italic 600 clamp(1.5rem,5vw,2rem) 'Cormorant Garamond',serif;letter-spacing:.2em;color:var(--deep);margin-bottom:26px}
+.pol{position:relative;width:min(300px,76vw);margin:0 auto 20px;background:#fff;padding:14px 14px 56px;box-shadow:0 16px 34px var(--sh);transform:rotate(-2.5deg)}
+.pol .photo{aspect-ratio:1;display:grid;place-items:center;background:linear-gradient(160deg,#cfe6f8,#8fb9e8);color:#fff;font:italic 5rem 'Cormorant Garamond',serif;text-shadow:0 3px 10px var(--sh)}
+.pol span{position:absolute;bottom:14px;left:0;right:0;font:italic 1.3rem 'Cormorant Garamond',serif;color:var(--deep)}
+.clip{position:absolute;top:-22px;left:50%;width:34px;margin-left:-17px;height:58px;border:4px solid #9fb6d4;border-radius:14px 14px 4px 4px;border-bottom:0}
+.bow{position:absolute;width:120px;left:50%;margin-left:-60px;top:-40px;z-index:3;filter:drop-shadow(0 4px 5px rgba(40,90,150,.3))}
+.pol .bow{left:auto;right:-34px;margin:0;top:-34px;width:96px;transform:rotate(18deg)}
+.seaStrip{height:80px;margin:34px -26px 0;background:radial-gradient(circle at 20px 0,#fff 14px,transparent 15px) 0 0/40px 26px repeat-x,linear-gradient(#6fa8e0,#3f7fc6)}
+.pline{height:12px;width:70%;margin:18px auto;background:radial-gradient(circle,#fff 3px,#d9d2c6 5px,transparent 5.5px) 0 0/18px 12px repeat-x}
+.play{display:grid;place-items:center;width:56px;height:56px;margin:22px auto 0;border-radius:50%;border:2px solid #fff;background:linear-gradient(#e4f0fc,#8fb4e6);color:#fff;font-size:1.2rem;cursor:pointer;box-shadow:0 8px 18px var(--sh)}
+/* thống kê */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:18px 0 22px}
+.stats b{display:block;font:italic 600 2rem 'Cormorant Garamond',serif}.stats em{font-style:normal;font-size:.7rem;opacity:.9}
+/* timeline */
+.tm{max-width:440px;margin:0 auto 30px;position:relative}
+.tm:before{content:"";display:block;width:26px;height:26px;margin:0 auto 8px;border-radius:50%;background:radial-gradient(circle at 32% 28%,#fff,#e9e2d6 55%,#b9b0a0);box-shadow:0 3px 7px rgba(0,0,0,.25)}
+.tm small{color:var(--deep);letter-spacing:.14em;font-size:.74rem}
+.tm h3{font-size:1.9rem;color:var(--deep);font-weight:600;margin:2px 0 6px}
+.tm summary{list-style:none;cursor:pointer}.tm summary::-webkit-details-marker{display:none}
+.tm summary .sbtn{margin-top:6px;font-size:.78rem;padding:8px 20px 8px 10px}
+.tm summary .sbtn:after{content:"▾"}.tm[open] summary .sbtn:after{content:"▴"}
+.tm ul{text-align:left;font-size:.9rem;background:rgba(143,180,230,.15);border:1.5px dashed var(--blue);border-radius:20px;padding:16px 16px 16px 34px;margin:14px 0 0}
+.tm::after{content:"";display:block;width:2px;height:28px;margin:22px auto 0;background:repeating-linear-gradient(var(--blue) 0 5px,transparent 5px 10px)}
+.tm:last-child::after{display:none}
+/* khay bạc */
+.tray{position:relative;width:min(430px,94%);margin:50px auto 0;padding:44px 30px 34px;border-radius:56px/70px;background:conic-gradient(from 30deg,#f5f8fb,#a9b6c6,#f1f4f8,#8f9db0,#f5f8fb);box-shadow:0 20px 40px var(--sh),inset 0 0 0 6px rgba(255,255,255,.6)}
+.tag2{position:relative;background:#fbf6ea;color:#2c3d5c;border-radius:12px;padding:38px 22px 24px;text-align:left;font-size:.9rem;box-shadow:0 8px 16px rgba(0,0,0,.2)}
+.tag2:before{content:"";position:absolute;top:12px;left:50%;width:46px;height:12px;margin-left:-23px;background:radial-gradient(circle,#c9d4e2 4px,transparent 5px) 0 0/16px 12px repeat-x}
+.tag2 b{color:#3b6bb0;font:italic 600 1.3rem 'Cormorant Garamond',serif;display:block}
+.tag2 p{margin:0 0 12px;max-width:none}
+.tray .bow{top:-44px}
+/* kỹ năng */
+.orbs{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin:24px 0}
+.orb{width:92px;height:92px;border-radius:50%;display:grid;place-items:center;padding:8px;font-size:.72rem;line-height:1.25;color:#2c3d5c;background:radial-gradient(circle at 32% 26%,#fff,var(--c) 62%,rgba(0,0,0,.22));box-shadow:0 8px 14px var(--sh);animation:float 5s ease-in-out infinite}
+.orb:nth-child(2n){animation-delay:-2s}.orb:nth-child(3n){animation-delay:-3.5s}
+.chip{display:inline-block;margin:0 5px 8px;padding:5px 14px;border-radius:99px;background:var(--mist);border:1px solid var(--line);font-size:.8rem}
+.bar{margin:12px auto;max-width:440px;text-align:left}.bar b{font-weight:400;font-size:.86rem;display:flex;justify-content:space-between}
+.bar i{display:block;height:10px;border-radius:9px;background:var(--mist);margin-top:5px;overflow:hidden}
+.bar em{display:block;height:100%;width:0;border-radius:9px;background:linear-gradient(90deg,#8cc8ee,#3b6bb0);transition:width 1.5s ease}
+/* ruy băng + liên hệ */
+.ribbon{position:relative;width:min(380px,92%);margin:6px auto 22px;padding:16px 34px;background:linear-gradient(#b6d0f2,#8fb4e6);color:#fff;font:italic 600 1.7rem 'Cormorant Garamond',serif;clip-path:polygon(0 0,100% 0,94% 50%,100% 100%,0 100%,6% 50%);box-shadow:0 8px 16px var(--sh)}
+.soc{display:flex;justify-content:center;gap:12px;margin:18px 0}
+.soc a{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;border:2px solid #fff;background:linear-gradient(#e4f0fc,#a9cbf0);color:#2b5a99;text-decoration:none;font:600 .72rem 'Be Vietnam Pro',sans-serif;box-shadow:0 6px 14px var(--sh),inset 0 2px 0 #fff;transition:.3s}
+.soc a:hover{transform:translateY(-4px) rotate(-6deg)}
+/* form */
+.frm{max-width:460px;margin:0 auto;text-align:left;font-size:.9rem}
+.frm label.t{display:block;margin:16px 0 6px;font-size:.84rem;opacity:.85}
+.frm input[type=text],.frm textarea{width:100%;border:1.5px solid #b9d2f0;border-radius:16px;padding:11px 14px;font:inherit;background:#fff;color:#27406b}
+.frm .o{display:flex;gap:9px;align-items:center;margin:6px 0}.frm input{accent-color:#3b6bb0}
+.ok{display:none;margin-top:16px;text-align:center;color:var(--deep);font:italic 1.3rem 'Cormorant Garamond',serif}
+/* đếm ngược */
+.cd{display:flex;justify-content:center;gap:10px;margin:18px 0}
+.cd div{min-width:64px;padding:12px 6px;border-radius:18px;background:rgba(255,255,255,.2);border:1.5px solid rgba(255,255,255,.75)}
+.cd b{display:block;font:600 1.9rem/1 'Cormorant Garamond',serif}.cd span{font-size:.68rem;opacity:.9}
+.sand{position:relative;height:150px;background:linear-gradient(#efe3c6,#e6d4ad);text-align:center;padding-top:34px;font:italic 1.3rem 'Cormorant Garamond',serif;color:#3b6bb0}
+.star{position:absolute;width:56px;filter:drop-shadow(0 4px 6px rgba(0,0,0,.2))}
+.rv{opacity:0;transform:translateY(16px);transition:.8s}.rv.in{opacity:1;transform:none}
+@keyframes float{50%{transform:translateY(-8px)}}
+@media(max-width:560px){.pg{padding:50px 18px}.stats{grid-template-columns:repeat(3,1fr)}.cd div{min-width:58px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+
+.bow{aspect-ratio:200/130;height:auto}
