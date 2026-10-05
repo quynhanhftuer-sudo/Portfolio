@@ -1,5 +1,5 @@
 const $=id=>document.getElementById(id),cover=$('cover'),main=$('main');
-/* ---- Bong bóng (canvas) ---- */
+
 const cv=$('fx'),cx=cv.getContext('2d');let W,H,bub=[],deep=true;
 function size(){W=cv.width=innerWidth;H=cv.height=innerHeight}size();addEventListener('resize',size);
 for(let i=0;i<46;i++)bub.push({x:Math.random(),y:Math.random(),r:2+Math.random()*9,s:.0006+Math.random()*.0016,w:Math.random()*6});
@@ -18,7 +18,7 @@ function pop(x,y,n){for(let i=0;i<n;i++)pops.push({x:x+(Math.random()-.5)*34,y:y
 addEventListener('pointerdown',e=>{if(deep)pop(e.clientX,e.clientY,8)});
 addEventListener('pointermove',e=>{if(!deep)return;const n=performance.now();if((e.buttons||e.pointerType==='touch')&&n-lastP>50){lastP=n;pop(e.clientX,e.clientY,1)}});
 
-/* ---- Âm thanh biển (Web Audio, tạo trực tiếp) ---- */
+
 let ac,lp,master,on=false;
 function initAudio(){if(ac)return;ac=new(window.AudioContext||window.webkitAudioContext)();
  const n=ac.sampleRate*4,buf=ac.createBuffer(1,n,ac.sampleRate),d=buf.getChannelData(0);let l=0;
@@ -38,7 +38,7 @@ function setSound(v){on=v;initAudio();ac.resume();master.gain.setTargetAtTime(v?
 function mood(){if(ac)lp.frequency.setTargetAtTime(deep?450:1500,ac.currentTime,.8)}
 $('snd').onclick=()=>setSound(!on);
 
-/* ---- Chuyển trang ---- */
+
 function swap(from,to,toDeep){from.classList.remove('show');setTimeout(()=>{from.classList.remove('on');to.classList.add('on');deep=toDeep;mood();scrollTo(0,0);
  requestAnimationFrame(()=>requestAnimationFrame(()=>{to.classList.add('show');reveal()}))},700)}
 $('go').onclick=()=>{setSound(true);swap(cover,main,false)};
